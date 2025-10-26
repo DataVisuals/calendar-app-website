@@ -4,7 +4,7 @@ Public website and privacy policy for CalendarApp.
 
 ## Live Site
 
-**https://andrewspruce.github.io/calendar-app-website/**
+**https://datavisuals.github.io/calendar-app-website/**
 
 ## Contents
 
