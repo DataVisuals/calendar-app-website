@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalendarApp - Your All-in-One Productivity Companion</title>
+    <meta name="description" content="A powerful calendar and productivity app with HealthKit integration, Pomodoro timer, weather, news, and 10 beautiful color themes.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: black;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Matching onboarding */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.98));
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(51, 102, 230, 0.1), transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(127, 76, 204, 0.1), transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 40px;
+            background: linear-gradient(135deg, #3366E6 0%, #7F4CCC 100%);
+            border-radius: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 20px 60px rgba(51, 102, 230, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3366E6 0%, #7F4CCC 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(51, 102, 230, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(51, 102, 230, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, black 0%, #0a0a0a 100%);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(51, 102, 230, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="app-icon">📅</div>
+            <h1>CalendarApp</h1>
+            <p class="tagline">Your all-in-one productivity companion<br>for iPhone, iPad, and Mac</p>
+
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/calendarapp" class="btn btn-primary">Download on App Store</a>
+                <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+            </div>
+
+            <p style="color: rgba(255,255,255,0.5); margin-top: 20px;">Privacy-first • No data collection • Works offline</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3 class="feature-title">7 Calendar Views</h3>
+                <p class="feature-description">Month, Week, 5-Day, 3-Day, Today, Agenda, and Reminders. Every view you need to stay organized.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <h3 class="feature-title">HealthKit Integration</h3>
+                <p class="feature-description">See your workouts right on your calendar. Track runs, rides, and exercises with duration and distance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🍅</div>
+                <h3 class="feature-title">Pomodoro Timer</h3>
+                <p class="feature-description">Built-in focus timer with 25-minute work sessions and automatic breaks. Stay productive with ease.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">10 Color Palettes</h3>
+                <p class="feature-description">Vibrant, Pastel, Bold, Rainbow, Earth, Ocean, Sunset, Forest, Monochrome, and Neon themes.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3 class="feature-title">Multi-Timezone</h3>
+                <p class="feature-description">Perfect for global teams and international travel. See multiple timezones at once.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacy First</h3>
+                <p class="feature-description">All your data stays on your device. No tracking, no analytics, no data collection. Ever.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌤</div>
+                <h3 class="feature-title">Weather & News</h3>
+                <p class="feature-description">See weather forecasts and news headlines right in your calendar views.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡️</div>
+                <h3 class="feature-title">Natural Language</h3>
+                <p class="feature-description">Create events by typing naturally: "Meeting tomorrow at 2pm for 1 hour"</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3 class="feature-title">Beautiful Reminders</h3>
+                <p class="feature-description">Manage todos with stunning post-it style cards alongside your calendar events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:andrew.spruce@example.com">Support</a>
+            <a href="https://apps.apple.com/app/calendarapp">App Store</a>
+        </div>
+        <p class="copyright">© 2025 CalendarApp. All rights reserved.<br>Privacy-first productivity for everyone.</p>
+    </footer>
+</body>
+</html>
