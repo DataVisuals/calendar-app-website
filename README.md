@@ -1,6 +1,6 @@
-# CalendarApp Website
+# WhatsGoingOn Website
 
-Public website and privacy policy for CalendarApp.
+Public website and privacy policy for WhatsGoingOn.
 
 ## Live Site
 
@@ -22,7 +22,7 @@ The website uses a dark theme with:
 
 ## Privacy First
 
-CalendarApp is a privacy-first productivity app. All user data stays on device. No analytics, no tracking, no data collection.
+WhatsGoingOn is a privacy-first productivity app. All user data stays on device. No analytics, no tracking, no data collection.
 
 ## Features
 
@@ -37,7 +37,7 @@ CalendarApp is a privacy-first productivity app. All user data stays on device. 
 
 ## Repository
 
-This is the public website repository. The main CalendarApp code is in a private repository.
+This is the public website repository. The main WhatsGoingOn code is in a private repository.
 
 ---
 
