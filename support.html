@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsGoingOn - Your All-in-One Productivity Companion</title>
-    <meta name="description" content="A powerful calendar and productivity app with HealthKit integration, Pomodoro timer, weather, news, and 10 beautiful color themes.">
+    <title>Support - WhatsGoingOn</title>
+    <meta name="description" content="Get help with WhatsGoingOn - submit issues, report bugs, or request features.">
     <style>
         * {
             margin: 0;
@@ -19,18 +19,18 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section - Matching onboarding */
-        .hero {
+        /* Support Section */
+        .support {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.98));
-            padding: 40px 20px;
+            padding: 80px 20px;
             position: relative;
         }
 
-        .hero::before {
+        .support::before {
             content: '';
             position: absolute;
             top: 0;
@@ -41,34 +41,28 @@
                         radial-gradient(circle at 80% 50%, rgba(127, 76, 204, 0.1), transparent 50%);
         }
 
-        .hero-content {
+        .support-content {
             max-width: 800px;
-            text-align: center;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
-        .app-icon {
-            width: 120px;
-            height: 120px;
+        .support-icon {
+            width: 100px;
+            height: 100px;
             margin: 0 auto 40px;
             background: linear-gradient(135deg, #3366E6 0%, #7F4CCC 100%);
             border-radius: 27px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+            font-size: 50px;
             box-shadow: 0 20px 60px rgba(51, 102, 230, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 20px;
             background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
@@ -77,27 +71,59 @@
             background-clip: text;
         }
 
-        .tagline {
-            font-size: 1.5em;
-            color: rgba(255, 255, 255, 0.8);
+        .support-description {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 50px;
             line-height: 1.6;
         }
 
-        .cta-buttons {
+        .support-options {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .support-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .support-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(51, 102, 230, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .support-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .support-card-icon {
+            font-size: 1.5em;
+        }
+
+        .support-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .btn {
-            padding: 18px 40px;
-            border-radius: 30px;
+            padding: 15px 35px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1em;
             transition: all 0.3s ease;
             display: inline-block;
         }
@@ -160,43 +186,47 @@
                 font-size: 2em;
             }
 
-            .tagline {
-                font-size: 1.2em;
+            .support-description {
+                font-size: 1.1em;
             }
 
-            .app-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 50px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .support-card {
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="app-icon">📅</div>
-            <h1>WhatsGoingOn</h1>
-            <p class="tagline">Your all-in-one productivity companion<br>for iPhone, iPad, and Mac</p>
+    <!-- Support Section -->
+    <section class="support">
+        <div class="support-content">
+            <div class="support-icon">💬</div>
+            <h1>Support</h1>
+            <p class="support-description">Need help? Found a bug? Have a feature request?<br>We're here to help.</p>
 
-            <div class="cta-buttons">
-                <a href="https://apps.apple.com/app/whatsgoinon" class="btn btn-primary">Download on App Store</a>
-                <a href="features.html" class="btn btn-secondary">View Features</a>
-                <a href="support.html" class="btn btn-secondary">Get Support</a>
+            <div class="support-options">
+                <div class="support-card">
+                    <h2><span class="support-card-icon">🐛</span> Report an Issue</h2>
+                    <p>Found a bug or experiencing technical problems? Submit an issue on GitHub and we'll look into it as soon as possible.</p>
+                    <a href="https://github.com/datavisuals/calendar-app-website/issues" class="btn btn-primary" target="_blank" rel="noopener">Submit an Issue</a>
+                </div>
+
+                <div class="support-card">
+                    <h2><span class="support-card-icon">✨</span> Request a Feature</h2>
+                    <p>Have an idea for a new feature or improvement? We'd love to hear your suggestions!</p>
+                    <a href="https://github.com/datavisuals/calendar-app-website/issues/new" class="btn btn-secondary" target="_blank" rel="noopener">Request Feature</a>
+                </div>
+
+                <div class="support-card">
+                    <h2><span class="support-card-icon">📧</span> Email Support</h2>
+                    <p>Prefer to reach out directly? Send us an email and we'll get back to you.</p>
+                    <a href="mailto:andrew.spruce@example.com" class="btn btn-secondary">Send Email</a>
+                </div>
             </div>
 
-            <p style="color: rgba(255,255,255,0.5); margin-top: 20px;">Privacy-first • No data collection • Works offline</p>
+            <p style="color: rgba(255,255,255,0.5); margin-top: 20px;">
+                Your feedback helps us improve WhatsGoingOn for everyone.
+            </p>
         </div>
     </section>
 
